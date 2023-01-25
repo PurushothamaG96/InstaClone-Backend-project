@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const mongoose = require('mongoose')
 const port = 6000;
 const postRouter = require('./router/postRouter')
@@ -11,7 +12,7 @@ async function main(){
     console.log("atlas server is connected")
 }
 main()
-
+app.use(cors())
 const cloudinary = require('cloudinary').v2
 cloudinary.config({ 
     cloud_name: process.env.CLOUD_NAME, 
